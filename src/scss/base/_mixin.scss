@@ -1,0 +1,166 @@
+// *************************************
+//
+//   Mixin & Extends
+//
+// *************************************
+
+
+// -------------------------------------
+//   Same size of
+//   width, height & line-height
+// -------------------------------------
+
+@mixin same-whl($size) {
+  width: $size;
+  height: $size;
+  line-height: $size;
+}
+
+
+// -------------------------------------
+//   Remove inline spacing 
+//   (only use in wrapper)
+// -------------------------------------
+
+@mixin remove-spacing($_children, $_fontSize: $font-base) {
+  font-size: 0;
+  // If not specific size, set default
+  #{$_children} {
+    font-size: $_fontSize;
+  }
+}
+
+
+// -------------------------------------
+//   inline Vertical
+//   (combine with absolute element)
+// -------------------------------------
+
+@mixin inline-vertical() {
+  &:before {
+    content: "";
+    display: inline-block;
+    width: 0;
+    height: 100%;
+    vertical-align: middle;
+  }
+  > * {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+
+// -------------------------------------
+//  Text-overflow Ellipsis
+// -------------------------------------
+
+@mixin overflow-ellipsis($_width: 100%) {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: $_width;
+}
+
+
+// -------------------------------------
+//   Hide Scrollbar
+// -------------------------------------
+
+@mixin hide-scrollbar {
+  overflow: auto;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    width: 0 !important;
+  }
+}
+
+
+// -------------------------------------
+//   Font Url
+// -------------------------------------
+
+@function font-url($_url) {
+  @return url($font-path + $_url);
+}
+
+// -------------------------------------
+//   Z-index
+// -------------------------------------
+
+@function map-has-nested-keys($map, $keys...) {
+  @each $key in $keys {
+    @if not map-has-key($map, $key) {
+      @return false;
+    }
+    $map: map-get($map, $key);
+  }
+  @return true;
+}
+@function map-deep-get($map, $keys...) {
+  @each $key in $keys {
+    $map: map-get($map, $key);
+  }
+  @return $map;
+}
+@function z($layers...) {
+  @if not map-has-nested-keys($z-layers, $layers...) {
+    @warn "No layer found for `#{inspect($layers...)}` in $z-layers map. Property omitted.";
+  } 
+  @return map-deep-get($z-layers, $layers...);
+}
+
+
+// -------------------------------------
+//   Unite (Multiple Classes) 
+//   REF: http://stackoverflow.com/questions/9083614/sass-multiple-class-selector-from-a-variable
+// -------------------------------------
+
+@function unite($list, $glue: ", ") {
+  @if length($list)==1 {
+    @return $list;
+  }
+  @else {
+    $string: "";
+    @each $item in $list {
+      @if $string !="" {
+        $string: $string + $glue;
+      }
+      $string: $string + $item;
+    }
+    @return $string;
+  }
+}
+
+
+// -------------------------------------
+//   Breakpoint - media queries 
+// -------------------------------------
+
+@mixin bp($point) {
+  $bp-desktop: "(min-width: 1200px)";
+  $bp-pad: "(min-width: 1024px)";
+  $bp-pad-v: "(min-width: 768px)";
+  $bp-tablet: "(min-width: 601px)";
+  $bp-mobile: "(max-width: 568px)";
+  $bp-mobile-v: "(max-width: 375px)";
+
+  @if $point == "desk" {
+    @media #{$bp-desktop} { @content; }
+  }
+  @else if $point == "pad" {
+    @media #{$bp-pad} { @content; }
+  }
+  @else if $point == "pad-v" {
+    @media #{$bp-pad-v} { @content; }
+  }
+  @else if $point == "tablet" {
+    @media #{$bp-tablet} { @content; }
+  }
+  @else if $point == "mobile" {
+    @media #{$bp-mobile}  { @content; }
+  }
+  @else if $point == "mobile-v" {
+    @media #{$bp-mobile-v}  { @content; }
+  }
+}

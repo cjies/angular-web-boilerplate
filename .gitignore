@@ -1,0 +1,20 @@
+
+### npm ###
+node_modules/
+
+### Bower ###
+src/lib/
+bower_components
+.bower-cache
+.bower-registry
+.bower-tmp
+
+### Sass ###
+.sass-cache
+
+### Sublime ###
+*.sublime-project
+*.sublime-workspace
+
+### mac ###
+.DS_Store

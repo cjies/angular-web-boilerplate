@@ -1,0 +1,67 @@
+// *************************************
+//
+//   Baseline
+//
+// *************************************
+
+
+// -------------------------------------
+//   Body
+// -------------------------------------
+
+html,
+body {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  color: $c-dark;
+  font-weight: $font-weight;
+  font-family: "Helvetica Neue", "Helvetica", "Arial", tahoma, verdana, sans-serif;
+}
+
+
+// -------------------------------------
+//   Base Text Color
+// -------------------------------------
+
+h1, h2, h3, h4, h5, h6, 
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  color: $c-dark;
+}
+
+
+// -------------------------------------
+//   Link
+// -------------------------------------
+
+a {
+  color: inherit;
+  text-decoration: none;
+  &:hover {
+    // text-decoration: underline;
+  }
+  img {
+    border: 0;
+  }
+}
+
+*:focus {
+  outline: none;
+}
+
+// -------------------------------------
+//   User Select
+// -------------------------------------
+
+body {
+  @include user-select(none);
+}
+
+h1, h2, h3, h4, h5, h6, 
+.h1, .h2, .h3, .h4, .h5, .h6,
+p, .p, li { 
+  @include user-select(auto);
+}

@@ -1,0 +1,79 @@
+// *************************************
+//
+//   Utility
+//
+// *************************************
+
+
+// -------------------------------------
+//   Statements
+// -------------------------------------
+
+.is-none {
+  display: none !important;
+}
+
+
+// -------------------------------------
+//   Position
+// -------------------------------------
+
+.set-left {
+  float: left !important;
+}
+.set-right {
+  float: right !important;
+}
+
+
+// -------------------------------------
+//   Text
+// -------------------------------------
+
+.tx-left {
+  text-align: left;
+}
+.tx-right {
+  text-align: right;
+}
+.tx-center {
+  text-align: center;
+}
+.tx-top {
+  vertical-align: top;
+}
+.tx-middle {
+  vertical-align: middle;
+}
+.tx-bottom {
+  vertical-align: bottom;
+}
+.tx-strong, b {
+  font-weight: 400;
+}
+.tx-italic {
+  font-style: italic;
+}
+
+.tx-disable, .tx-gray {
+  color: lighten($c-gray-light, 5%);
+}
+
+// Font size
+.tx-small { font-size: $font-small; }
+.tx-base { font-size: $font-base; }
+.tx-large { font-size: $font-large; }
+.tx-xlarge { font-size: $font-base * 1.8; font-weight: 300; }
+.tx-xxlarge { font-size: $font-base * 3; font-weight: 300; }
+
+.tx-ellipsis {
+  @include overflow-ellipsis();
+}
+
+.tx-wrap {
+  white-space: normal !important;
+}
+.tx-nowrap {
+  white-space: nowrap !important;
+}
+

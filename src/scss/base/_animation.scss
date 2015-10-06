@@ -1,0 +1,122 @@
+// *************************************
+//
+//   Animation 
+//   -> Animation Library
+//
+// *************************************
+
+
+// -------------------------------------
+//   Fade In & Out
+// -------------------------------------
+
+// ----- Fade-In ----- //
+@mixin fadeIn {
+  0%    { opacity: 0; }
+  100%  { opacity: 1; }
+}
+@-webkit-keyframes fadeIn { @include fadeIn; }
+   @-moz-keyframes fadeIn { @include fadeIn; }
+        @keyframes fadeIn { @include fadeIn; }
+
+
+// ----- Fade-Out ----- //
+@mixin fadeOut {
+  0%    { opacity: 1; }
+  100%  { opacity: 0; }
+}
+@-webkit-keyframes fadeOut { @include fadeOut; }
+   @-moz-keyframes fadeOut { @include fadeOut; }
+        @keyframes fadeOut { @include fadeOut; }
+
+
+// -------------------------------------
+//   Slide In & Out
+// -------------------------------------
+
+// ----- SlideX-In ----- //
+@mixin slideXIn {
+  0% { @include translateX(-12%); }
+  100% { @include translateX(0); }
+}
+@-webkit-keyframes slideXIn { @include slideXIn; }
+   @-moz-keyframes slideXIn { @include slideXIn; }
+        @keyframes slideXIn { @include slideXIn; }
+
+
+// ----- SlideX-Out ----- //
+@mixin slideXOut {
+  0% { @include translateX(0); }
+  100% { @include translateX(-12%); }
+}
+@-webkit-keyframes slideXOut { @include slideXOut; }
+   @-moz-keyframes slideXOut { @include slideXOut; }
+        @keyframes slideXOut { @include slideXOut; }
+
+
+// ----- SlideY-In ----- //
+@mixin slideYIn {
+  0% { @include translateY(8%, false, true); }
+  100% { @include translateY(0, false, true); }
+}
+@-webkit-keyframes slideYIn { @include slideYIn; }
+   @-moz-keyframes slideYIn { @include slideYIn; }
+        @keyframes slideYIn { @include slideYIn; }
+
+
+// ----- SlideY-Out ----- //
+@mixin slideYOut {
+  0% { @include translateY(0); }
+  100% { @include translateY(-8%); }
+}
+@-webkit-keyframes slideYOut { @include slideYOut; }
+   @-moz-keyframes slideYOut { @include slideYOut; }
+        @keyframes slideYOut { @include slideYOut; }
+
+
+// -------------------------------------
+//   draggable Pulse Effect
+// -------------------------------------
+
+@mixin draggablePulse {
+  0% { @include transform(scale(0.3, 0.3)); }
+  30% { @include transform(scale(1.1, 1.1)); }
+  100% { @include transform(scale(1, 1)); }
+}
+@-webkit-keyframes draggablePulse { @include draggablePulse; }
+   @-moz-keyframes draggablePulse { @include draggablePulse; }
+        @keyframes draggablePulse { @include draggablePulse; }
+
+
+// -------------------------------------
+//   Angular animation
+// -------------------------------------
+
+.ng-anim-fade {
+  
+  &.ng-enter, 
+  &.ng-leave {
+    position: absolute;
+    left: 0;
+    right: 0;
+    @include transition(all 0.3s ease-out);
+  }
+
+  &.ng-enter {
+    opacity: 0;
+  }
+  &.ng-enter-active {
+    opacity: 1;
+  }
+
+  &.ng-leave {
+    opacity: 1; 
+  }
+  &.ng-leave-active {
+    opacity: 0;
+  }
+
+}
+
+
+

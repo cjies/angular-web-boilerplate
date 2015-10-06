@@ -1,0 +1,80 @@
+// *************************************
+//
+//   Variables
+//   -> Global variables
+//
+// *************************************
+
+
+// -------------------------------------
+//   Color
+// -------------------------------------
+
+// ----- Commonn Color ----- //
+
+$c-light:                #fff !default;
+$c-dark:                 #333 !default;
+$c-black:                #000 !default;
+
+$c-gray-darker:          lighten(#000, 13.5%) !default; // #222222
+$c-gray-dark:            lighten(#000, 25%) !default;   // #404040
+$c-gray:                 lighten(#000, 50%) !default;   // #808080
+$c-gray-light:           lighten(#000, 69%) !default;   // #b0b0b0
+$c-gray-lighter:         lighten(#000, 96%) !default;   // #f5f5f5
+
+
+// ----- Base Color ----- //
+
+$c-brand:                #000;   
+$c-primary:              #111;
+$c-comp-1:               #222;
+
+$c-border:               $c-gray;
+$c-border-active:        darken($c-border, 5%);
+
+$c-background:           #fff;
+$c-backdrop:             rgba($c-black, 0.6);
+
+
+// -------------------------------------
+//   Size
+// -------------------------------------
+
+$size-container:         960px;
+$size-radius:            5px;
+
+
+// -------------------------------------
+//   Fonts 
+// -------------------------------------
+
+$font-path:             '../fonts/';
+
+$font-base:              14px !default;
+$font-large:             18px !default;
+$font-small:             12px !default;
+
+$font-weight:            300 !default;
+
+
+// -------------------------------------
+//   Z-index
+// -------------------------------------
+
+$z-layers: (
+  "popup":               9000,
+  "fix":                 100,
+  "top":                 99,
+  "front":               9,
+  "default":             1,
+  "below":               -1,
+  "hidden":              -9000
+);
+
+
+// -------------------------------------
+//   Grid System
+// -------------------------------------
+
+$grid-col:               12;
+$grid-gutter:            16px;

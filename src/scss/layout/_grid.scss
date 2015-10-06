@@ -1,0 +1,128 @@
+// *************************************
+//
+//   Grid System 
+//   col-w : column for common
+//   col-wp: column for (>= 768px)
+//   col-wd: column for (>= 1024px) 
+//
+// *************************************
+
+
+// -------------------------------------
+//   Column Group
+// -------------------------------------
+
+.col-group {
+  @include remove-spacing('[class^="col-w"], [class*=" col-w"]');
+}
+
+
+// -------------------------------------
+//   Column List 
+// -------------------------------------
+
+.col-list {
+  padding-bottom: 20px;
+}
+
+
+// -------------------------------------
+//   Grid Basic Settings
+// -------------------------------------
+
+@for $_grid-i from 1 through $grid-col {
+  // common
+  .col-w-padding {
+    padding-left: $grid-gutter;
+    padding-right: $grid-gutter;
+  }
+  .col-w-#{$_grid-i} {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+  }
+  // (wp)
+  @include bp("pad-v") {
+    .col-wp-padding {
+      padding-left: $grid-gutter;
+      padding-right: $grid-gutter;
+    }
+    .col-wp-#{$_grid-i} {
+      position: relative;
+      display: inline-block;
+      vertical-align: top;
+    }
+  }
+  // (wd)
+  @include bp("pad") {
+    .col-wd-padding {
+      padding-left: $grid-gutter;
+      padding-right: $grid-gutter;
+    }
+    .col-wd-#{$_grid-i} {
+      position: relative;
+      display: inline-block;
+      vertical-align: top;
+    }
+  }
+}
+
+
+// -------------------------------------
+//   Common Column
+// -------------------------------------
+
+@for $_grid-i from 1 through $grid-col {
+  .col-w-#{$_grid-i} {
+    width: ($_grid-i / $grid-col) * 100%;
+  }
+}
+
+
+// -------------------------------------
+//   Column (wp)
+// -------------------------------------
+
+@for $_grid-i from 1 through $grid-col {
+  @include bp("pad-v") {
+    .col-wp-#{$_grid-i} {
+      width: ($_grid-i / $grid-col) * 100%;
+    }
+  }
+}
+
+
+// -------------------------------------
+//   Column (wd)
+// -------------------------------------
+
+@for $_grid-i from 1 through $grid-col {
+  @include bp("pad") {
+    .col-wd-#{$_grid-i} {
+      width: ($_grid-i / $grid-col) * 100%;
+    }
+  }
+}
+
+
+// -------------------------------------
+//   Column Vertical-align
+// -------------------------------------
+
+[class^="col-w"], [class*=" col-w"] { 
+  &.tx-top { vertical-align: top; }
+  &.tx-middle { vertical-align: middle; }
+  &.tx-bottom { vertical-align: bottom; }
+}
+
+
+// -------------------------------------
+//   Column border
+// ------------------------------------- 
+
+.col-w-border {
+  border-right: 1px solid $c-border;
+  &:last-child {
+    border-right: 0;
+  }
+}

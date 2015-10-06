@@ -1,0 +1,12 @@
+{
+  /*** Application ***/
+  "APP": {
+    "NAME": "Angular Boilerplate"
+  },
+
+  /*** Test ***/
+  "TEST": {
+    "HELLO": "Hello World!"
+  }
+
+}

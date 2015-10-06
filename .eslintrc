@@ -1,0 +1,32 @@
+plugins:
+  - angular
+
+rules:
+    angular/ng_no_services: 
+      - 0
+    angular/ng_controller_name:
+      - 0
+    angular/ng_module_getter:
+      - 0
+    angular/ng_di: 
+      - 0
+    angular/ng_controller_as: 
+      - 0
+    angular/ng_document_service: 
+      - 0
+    angular/ng_window_service:
+      - 0
+    angular/ng_timeout_service:
+      - 0
+    angular/ng_on_watch:
+      - 0
+    angular/ng_module_setter:
+      - 0
+    angular/ng_json_functions:
+      - 0
+    quotes:
+      - 0
+
+globals:
+    angular: true
+    document: true
